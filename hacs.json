@@ -1,7 +1,5 @@
 {
-  "name": "OpenDisplay",
+  "name": "OpenDisplay (EL058F5W4C fork)",
   "render_readme": true,
-  "homeassistant": "2026.7.0",
-  "zip_release": true,
-  "filename": "opendisplay.zip"
+  "homeassistant": "2026.7.0"
 }

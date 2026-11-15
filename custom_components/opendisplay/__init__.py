@@ -39,6 +39,7 @@ from .const import CONF_CACHED_STATE, CONF_ENCRYPTION_KEY, DOMAIN, SETUP_DEADLIN
 from .coordinator import OpenDisplayCoordinator
 from .delivery import DeliveryManager
 from .services import async_setup_services
+from . import el058  # noqa: F401,E402  (SoluM EL058F5W4C frame layout)
 from .sleep import SleepProfile
 
 if TYPE_CHECKING:
