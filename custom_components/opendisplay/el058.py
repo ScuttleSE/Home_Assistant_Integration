@@ -5,7 +5,8 @@ the first 26928 bytes go to the master controller (right half), the rest to the 
 half). Here the picture is dithered and encoded as BWRY 2 bpp, and each half is reordered
 into the controller's row order 0, 271, 1, 270, ...
 
-Only applies to displays with panel_ic_type 0x0579 (set by the local Toolbox preset).
+Only applies to displays with panel_ic_type 0xF003 (provisional upstream id) or 0x0579
+(the first local Toolbox preset).
 """
 
 from __future__ import annotations
@@ -17,14 +18,14 @@ from opendisplay.models.enums import ColorScheme
 
 from . import services as _services
 
-EL058_PANEL_IC_TYPE = 0x0579
+EL058_PANEL_IC_TYPES = (0xF003, 0x0579)
 
 _orig_prepare = _services.prepare_image
 _orig_preview = _services.preview_image
 
 
 def _is_el058(config) -> bool:
-    return bool(config and config.displays and config.displays[0].panel_ic_type == EL058_PANEL_IC_TYPE)
+    return bool(config and config.displays and config.displays[0].panel_ic_type in EL058_PANEL_IC_TYPES)
 
 
 def _bwry_caps(config) -> DeviceCapabilities:
